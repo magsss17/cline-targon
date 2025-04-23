@@ -1639,7 +1639,6 @@ export const sambanovaModels = {
 	},
 } as const satisfies Record<string, ModelInfo>
 
-
 // Targon
 export type TargonModelId = keyof typeof targonModels
 export const targonDefaultModelId: TargonModelId = "claude-3-opus"
@@ -1661,4 +1660,3 @@ export const targonModels = {
 		outputPrice: 1.2,
 	},
 } as const satisfies Record<string, ModelInfo>
-
