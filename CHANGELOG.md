@@ -1,5 +1,28 @@
 # Changelog
 
+## 3.14.0
+
+### Minor Changes
+
+-   b3b7b9d: menu fix for slash commands
+-   4aa3764: Update protoc script version check to check for versions LOWER than that specified
+-   06196cf: Add aliasing to imports in the extension
+-   fbb13f1: Fix add new rule file button not working
+-   99bbe17: Update the extension import paths to use aliasing
+-   04d1f1d: update prompt for new task
+-   dfcb3d5: Migrate the toggleMcpServer message to protobus
+
+### Patch Changes
+
+-   4850df7: Add the o1 to the isReasoningModelFamily to avoid temperature be passed to the azure api
+-   6e71b3f: Add !include .file directive support for .clineignore
+-   a405df5: Fix Ollama provider timeout by increasing it from 30 sec to 120 seconds to accommodate model loading time
+-   552054a: Fix Non-UTF-8 File Handling: Improve Encoding Detection to Prevent Garbled Text and Binary Misclassification
+-   cff8a23: Fixed bug causing saved settings to get reset by changing providers
+-   552146d: Fixes auto approve settings becoming unset
+-   5439426: Remove supportsComputerUse restriction and support browser use through any model that supports images
+-   59dd323: Github workflow for creating a linear ticket from PRs
+
 ## [3.13.1]
 
 -   Fix bug where task cancellation during thinking stream would result in error state
