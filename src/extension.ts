@@ -179,7 +179,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	context.subscriptions.push(
 		vscode.commands.registerCommand("cline.testTargonPrompt", async () => {
-			const TARGON_API_KEY = "sn4_r7l7s99cslvz7oscawdm5zf8jmsh"
+			const TARGON_API_KEY = ""
 
 			const agent = new https.Agent({
 				rejectUnauthorized: false,
