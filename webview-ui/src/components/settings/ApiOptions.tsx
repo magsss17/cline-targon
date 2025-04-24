@@ -51,6 +51,8 @@ import {
 	doubaoModels,
 	doubaoDefaultModelId,
 	liteLlmModelInfoSaneDefaults,
+	targonModels,
+	targonDefaultModelId,
 } from "@shared/api"
 import { ExtensionMessage } from "@shared/ExtensionMessage"
 import { useExtensionState } from "@/context/ExtensionStateContext"
@@ -247,6 +249,7 @@ const ApiOptions = ({
 					<VSCodeOption value="asksage">AskSage</VSCodeOption>
 					<VSCodeOption value="xai">xAI</VSCodeOption>
 					<VSCodeOption value="sambanova">SambaNova</VSCodeOption>
+					<VSCodeOption value="targon">Targon</VSCodeOption>
 				</VSCodeDropdown>
 			</DropdownContainer>
 
@@ -1563,6 +1566,37 @@ const ApiOptions = ({
 				</div>
 			)}
 
+			{selectedProvider === "targon" && (
+				<div>
+					<VSCodeTextField
+						value={apiConfiguration?.targonApiKey || ""}
+						style={{ width: "100%" }}
+						type="password"
+						onInput={handleInputChange("targonApiKey")}
+						placeholder="Enter API Key...">
+						<span style={{ fontWeight: 500 }}>Targon API Key</span>
+					</VSCodeTextField>
+					<p
+						style={{
+							fontSize: "12px",
+							marginTop: 3,
+							color: "var(--vscode-descriptionForeground)",
+						}}>
+						This key is stored locally and only used to make API requests from this extension.
+						{!apiConfiguration?.targonApiKey && (
+							<VSCodeLink
+								href="https://targon.ai"
+								style={{
+									display: "inline",
+									fontSize: "inherit",
+								}}>
+								You can get a Targon API key by signing up here.
+							</VSCodeLink>
+						)}
+					</p>
+				</div>
+			)}
+
 			{apiErrorMessage && (
 				<p
 					style={{
@@ -1654,6 +1688,7 @@ const ApiOptions = ({
 							{selectedProvider === "asksage" && createDropdown(askSageModels)}
 							{selectedProvider === "xai" && createDropdown(xaiModels)}
 							{selectedProvider === "sambanova" && createDropdown(sambanovaModels)}
+							{selectedProvider === "targon" && createDropdown(targonModels)}
 						</DropdownContainer>
 
 						{((selectedProvider === "anthropic" && selectedModelId === "claude-3-7-sonnet-20250219") ||
@@ -2056,6 +2091,8 @@ export function normalizeApiConfiguration(apiConfiguration?: ApiConfiguration): 
 			return getProviderData(xaiModels, xaiDefaultModelId)
 		case "sambanova":
 			return getProviderData(sambanovaModels, sambanovaDefaultModelId)
+		case "targon":
+			return getProviderData(targonModels, targonDefaultModelId)
 		default:
 			return getProviderData(anthropicModels, anthropicDefaultModelId)
 	}

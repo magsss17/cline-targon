@@ -844,9 +844,9 @@ const ChatView = ({ isHidden, showAnnouncement, hideAnnouncement, showHistoryVie
 					{showAnnouncement && <Announcement version={version} hideAnnouncement={hideAnnouncement} />}
 
 					<div style={{ padding: "0 20px", flexShrink: 0 }}>
-						<h2>What can I do for you?</h2>
+						<h2>What can TargonBot do for you?</h2>
 						<p>
-							Thanks to{" "}
+							I am a Bittensor Targon-inference specific Cline Bot. Thanks to{" "}
 							<VSCodeLink href="https://www.anthropic.com/claude/sonnet" style={{ display: "inline" }}>
 								Claude 3.7 Sonnet's
 							</VSCodeLink>
