@@ -26,7 +26,7 @@ export class TargonClient {
 		// Initialize the OpenAI client with the chosen baseURL and API key.
 		this.client = new OpenAI({
 			baseURL,
-			apiKey: process.env.TARGON_API_KEY!, //config.apiKey,
+			apiKey: config.apiKey,
 			dangerouslyAllowBrowser: true,
 		})
 	}

@@ -122,6 +122,7 @@ export async function getAllExtensionState(context: vscode.ExtensionContext) {
 		thinkingBudgetTokens,
 		reasoningEffort,
 		sambanovaApiKey,
+		targonApiKey,
 		planActSeparateModelsSettingRaw,
 		favoritedModelIds,
 		globalClineRulesToggles,
@@ -195,6 +196,7 @@ export async function getAllExtensionState(context: vscode.ExtensionContext) {
 		getGlobalState(context, "thinkingBudgetTokens") as Promise<number | undefined>,
 		getGlobalState(context, "reasoningEffort") as Promise<string | undefined>,
 		getSecret(context, "sambanovaApiKey") as Promise<string | undefined>,
+		getSecret(context, "targonApiKey") as Promise<string | undefined>,
 		getGlobalState(context, "planActSeparateModelsSetting") as Promise<boolean | undefined>,
 		getGlobalState(context, "favoritedModelIds") as Promise<string[] | undefined>,
 		getGlobalState(context, "globalClineRulesToggles") as Promise<ClineRulesToggles | undefined>,
@@ -296,6 +298,7 @@ export async function getAllExtensionState(context: vscode.ExtensionContext) {
 			asksageApiUrl,
 			xaiApiKey,
 			sambanovaApiKey,
+			targonApiKey,
 			favoritedModelIds,
 		},
 		lastShownAnnouncementId,
@@ -433,6 +436,7 @@ export async function updateApiConfiguration(context: vscode.ExtensionContext, a
 	await updateGlobalState(context, "reasoningEffort", reasoningEffort)
 	await storeSecret(context, "clineApiKey", clineApiKey)
 	await storeSecret(context, "sambanovaApiKey", sambanovaApiKey)
+	await storeSecret(context, "targonApiKey", apiConfiguration.targonApiKey)
 	await updateGlobalState(context, "favoritedModelIds", favoritedModelIds)
 }
 
@@ -460,6 +464,7 @@ export async function resetExtensionState(context: vscode.ExtensionContext) {
 		"asksageApiKey",
 		"xaiApiKey",
 		"sambanovaApiKey",
+		"targonApiKey",
 	]
 	for (const key of secretKeys) {
 		await storeSecret(context, key, undefined)

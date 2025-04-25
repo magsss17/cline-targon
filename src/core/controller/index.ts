@@ -11,6 +11,7 @@ import { handleGrpcRequest } from "./grpc-handler"
 import { buildApiHandler } from "@api/index"
 import { cleanupLegacyCheckpoints } from "@integrations/checkpoints/CheckpointMigration"
 import { downloadTask } from "@integrations/misc/export-markdown"
+import { downloadFile } from "@integrations/misc/download-file"
 import { fetchOpenGraphData, isImageUrl } from "@integrations/misc/link-preview"
 import { openFile, openImage } from "@integrations/misc/open-file"
 import { selectImages } from "@integrations/misc/process-images"
@@ -882,6 +883,12 @@ export class Controller {
 			case "grpc_request": {
 				if (message.grpc_request) {
 					await handleGrpcRequest(this, message.grpc_request)
+				}
+				break
+			}
+			case "downloadFile": {
+				if (message.filePath && message.fileName && message.fileType) {
+					await downloadFile(message.filePath, message.fileName, message.fileType)
 				}
 				break
 			}
