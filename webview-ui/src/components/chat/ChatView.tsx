@@ -846,14 +846,10 @@ const ChatView = ({ isHidden, showAnnouncement, hideAnnouncement, showHistoryVie
 					<div style={{ padding: "0 20px", flexShrink: 0 }}>
 						<h2>What can TargonBot do for you?</h2>
 						<p>
-							I am a Bittensor Targon-inference specific Cline Bot. Thanks to{" "}
-							<VSCodeLink href="https://www.anthropic.com/claude/sonnet" style={{ display: "inline" }}>
-								Claude 3.7 Sonnet's
-							</VSCodeLink>
-							agentic coding capabilities, I can handle complex software development tasks step-by-step. With tools
-							that let me create & edit files, explore complex projects, use a browser, and execute terminal
-							commands (after you grant permission), I can assist you in ways that go beyond code completion or tech
-							support. I can even use MCP to create new tools and extend my own capabilities.
+							I am a TargonBot, an AI coding agent utilizing Bittensor Targon-inferencing. I can create & edit
+							files, explore complex projects, use a browser, and execute terminal commands (after you grant
+							permission). I can even use MCP to create new tools and extend my own capabilities. TargonBot is built
+							on Cline and you can choose from Claude and Mistral models.
 						</p>
 					</div>
 					{taskHistory.length > 0 && <HistoryPreview showHistoryView={showHistoryView} />}
