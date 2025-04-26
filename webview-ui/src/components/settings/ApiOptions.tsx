@@ -1555,7 +1555,7 @@ const ApiOptions = ({
 						This key is stored locally and only used to make API requests from this extension.
 						{!apiConfiguration?.targonApiKey && (
 							<VSCodeLink
-								href="https://targon.ai"
+								href="https://targon.com/"
 								style={{
 									display: "inline",
 									fontSize: "inherit",
