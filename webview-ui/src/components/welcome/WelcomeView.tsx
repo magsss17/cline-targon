@@ -33,10 +33,10 @@ const WelcomeView = memo(() => {
 					<ClineLogoWhite className="size-16" />
 				</div>
 				<p>
-					I'm a bittensor Targon specific version of Cline. I can do all kinds of tasks thanks to breakthroughs in decentralized
-					agentic coding capabilities and access to tools that let me create & edit files, explore complex projects, use
-					a browser, and execute terminal commands <i>(with your permission, of course)</i>. I can even use MCP to
-					create new tools and extend my own capabilities.
+					I'm a bittensor Targon specific version of Cline. I can do all kinds of tasks thanks to breakthroughs in
+					decentralized agentic coding capabilities and access to tools that let me create & edit files, explore complex
+					projects, use a browser, and execute terminal commands <i>(with your permission, of course)</i>. I can even
+					use MCP to create new tools and extend my own capabilities.
 				</p>
 
 				<p className="text-[var(--vscode-descriptionForeground)]">
