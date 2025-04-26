@@ -82,6 +82,7 @@ export interface WebviewMessage {
 		| "grpc_request"
 		| "toggleClineRule"
 		| "deleteClineRule"
+		| "downloadFile" // For downloading CSV/JSON files
 
 	// | "relaunchChromeDebugMode"
 	text?: string
@@ -132,6 +133,11 @@ export interface WebviewMessage {
 	filename?: string
 
 	offset?: number
+
+	// For downloadFile
+	filePath?: string
+	fileName?: string
+	fileType?: "csv" | "json"
 }
 
 export type ClineAskResponse = "yesButtonClicked" | "noButtonClicked" | "messageResponse"

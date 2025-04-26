@@ -3,6 +3,8 @@ import deepEqual from "fast-deep-equal"
 import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useEvent, useSize } from "react-use"
 import styled from "styled-components"
+import DownloadFileButton from "./DownloadFileButton"
+import { getDownloadableFileInfo } from "@/utils/fileUtils"
 import {
 	ClineApiReqInfo,
 	ClineAskQuestion,
@@ -375,6 +377,7 @@ export const ChatRowContent = ({
 					</>
 				)
 			case "newFileCreated":
+				const downloadableFileInfo = getDownloadableFileInfo(tool.path)
 				return (
 					<>
 						<div style={headerStyle}>
@@ -390,6 +393,13 @@ export const ChatRowContent = ({
 							isExpanded={isExpanded}
 							onToggleExpand={onToggleExpand}
 						/>
+						{downloadableFileInfo && message.type === "say" && !message.partial && (
+							<DownloadFileButton
+								filePath={tool.path!}
+								fileName={downloadableFileInfo.fileName}
+								fileType={downloadableFileInfo.fileType}
+							/>
+						)}
 					</>
 				)
 			case "readFile":

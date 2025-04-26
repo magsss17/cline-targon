@@ -48,7 +48,7 @@
 			"activitybar": [
 				{
 					"id": "claude-dev-ActivityBar",
-					"title": "Cline",
+					"title": "TargonBot",
 					"icon": "assets/icons/icon.svg"
 				}
 			]
